@@ -16,3 +16,22 @@ This document outlines the IP allocation strategy for my virtual machine lab. It
 - The **Ubuntu VM** sits in Subnet B and hosts Apache2, Python, and DNS services as needed.
 - Future web VMs will be placed in Subnet A for logical separation.
 - Subnet D is reserved for potential firewall testing or external-facing services.
+## 📊 Subnet Diagram Overview
+
+Here's a simplified layout of the VM lab subnets:
+
++----------------------------+        +----------------------------+
+| Subnet A: Web Servers      |        | Subnet B: Infrastructure   |
+| CIDR: 192.168.100.0/26     |        | CIDR: 192.168.100.64/26    |
+| Range: 192.168.100.1–62    |        | Range: 192.168.100.65–126  |
+| Example VM: web-01         |        | Example VM: ubuntu-core    |
++----------------------------+        +----------------------------+
+
+         ↕ Routing, Firewall Controls
+
++----------------------------+        +----------------------------+
+| Subnet C: Clients          |        | Subnet D: DMZ / Reserved   |
+| CIDR: 192.168.100.128/26   |        | CIDR: 192.168.100.192/26   |
+| Range: 192.168.100.129–190 |        | Range: 192.168.100.193–254 |
+| Example VM: client-01      |        | Example VM: dmz-01         |
++----------------------------+        +----------------------------+
